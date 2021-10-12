@@ -3,7 +3,7 @@ import classes from './Drawer.css'
 import Backdrop from "../../UI/Backdrop/Backdrop";
 
 const links = [
-    1,2,3
+    1,2,3,4
 ]
 
 class Drawer extends Component {
