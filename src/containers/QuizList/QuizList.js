@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import classes from './QuizList.css'
 import {NavLink} from "react-router-dom";
-import axios from 'axios'
+import axios from '../../axios/axios-quiz';
 import Loader from "../../components/UI/loader/loader";
 
 export default class QuizList extends Component {
@@ -16,7 +16,7 @@ export default class QuizList extends Component {
                 <li
                 key={quiz.id}
                 >
-                    <NavLink to={'/quiz/' + quiz.id}>
+                    <NavLink to={'quiz/' + quiz.id}>
                         {quiz.name}
                     </NavLink>
                 </li>
@@ -26,7 +26,7 @@ export default class QuizList extends Component {
 
     async componentDidMount() {
         try {
-            const responce = await axios.get('https://react-quiz-64a0d-default-rtdb.firebaseio.com/quizes.json')
+            const responce = await axios.get('quizes.json')
             const quizes = []
             Object.keys(responce.data).forEach((key, index) => {
                 quizes.push({
