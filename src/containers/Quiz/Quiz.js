@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import classes from './Quiz.css'
 import ActiveQuiz from "../../components/ActiveQuiz/ActiveQuiz";
 import FinishedQuiz from "../../components/FinishedQuiz/FinishedQuiz";
