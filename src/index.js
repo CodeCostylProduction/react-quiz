@@ -21,7 +21,7 @@ const composeEnhancers =
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 const app = (
-    <Provider>
+    <Provider store={store}>
         <BrowserRouter>
             <App />
         </BrowserRouter>
