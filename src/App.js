@@ -7,6 +7,7 @@ import Auth from "./containers/Auth/Auth";
 import {Redirect, Route, Switch, withRouter} from 'react-router-dom'
 import {connect} from "react-redux"
 import Logout from './components/logout/logout'
+import {autoLogin} from "./store/actions/auth";
 
 class App extends Component {
     componentDidMount() {
@@ -26,10 +27,10 @@ class App extends Component {
       if (this.props.isAuthenticated) {
           routes = (
               <Switch>
-                  <Route path="/logout" component={Logout}/>
                   <Route path="/quiz-creator" component={QuizCreator}/>
                   <Route path="/quiz/:id" component={Quiz}/>
-                  <Route path="/" component={QuizList}/>
+                  <Route path="/logout" component={Logout}/>
+                  <Route path="/" exact component={QuizList}/>
                   <Redirect to={'/'}/>
               </Switch>
           )
@@ -54,4 +55,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default withRouter(connect(mapStateToProps)(App))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))
